@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "com.unity.ide.rider": "1.2.1",
+    "com.unity.ide.visualstudio": "2.0.8",
+    "com.unity.ide.vscode": "1.2.3",
+    "com.unity.nuget.newtonsoft-json": "2.0.2",
+    "com.unity.testtools.codecoverage": "0.4.3-preview",
+    "com.unity.ugui": "1.0.0",
+    "com.unity.upm.develop": "0.1.2-preview",
+    "com.wildlifestudios.nuget.google.protobuf": "3.7.0",
+    "com.wildlifestudios.nuget.nsubstitute": "4.2.2",
+    "com.wildlifestudios.simplejson": "2.0.0",
+    "com.wildlifestudios.file-persistency-json": "1.0.1-0",
+    "com.wildlifestudios.unity-logger": "1.0.0-0",
+    "com.wildlifestudios.metagame-base": "1.14.0",
+    "com.wildlifestudios.authentication": "1.7.1",
+    "com.wildlifestudios.configuration": "1.10.4",
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequestwww": "1.0.0",
+    "com.wildlifestudios.nuget.libpitaya": "4.2.2"
+  },
+  "scopedRegistries": [
+    {
+      "name": "WildlifeStudios",
+      "url": "https://artifactory.tfgco.com/artifactory/api/npm/npm-local",
+      "scopes": [
+        "com.wildlifestudios"
+      ]
+    }
+  ]
+}
