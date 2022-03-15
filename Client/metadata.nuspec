@@ -1,18 +1,18 @@
 <package>
    <metadata>
       <id>Wildlife.MinimalClientTemplate</id>
-      <version>1.0.0-alpha.1</version>
+      <version>1.0.0</version>
       <authors>Wildlife Studios</authors>
       <owners>Wildlife Studios</owners>
       <projectUrl>https://git.topfreegames.com/ring/template/minimal-client-template</projectUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
-      <description>Core functionality for the metagame related features. This module includes the base setup of pitaya, server communication, error handling, requests management (queueing) and interface definitions for inter-module communication.</description>
+      <description>A minimal metagame client template for easily generating a metagame client for games. This template only offers a setup that covers the base setup of pitaya, server communication, authentication module, configuration module and data persistence.</description>
       <releaseNotes></releaseNotes>
       <copyright>Copyright 2022</copyright>
       <tags>dev unity wildlife</tags>
       <repository type="git" url="https://git.topfreegames.com/ring/template/minimal-client-template" />
    </metadata>
    <files>
-      <file src="Packages/com.wildlifestudios.minimal-client-template/**/*" target="" />
+      <file src="Packages/{{cookiecutter.clientPackageName}}/**/*" target="" />
    </files>
 </package>

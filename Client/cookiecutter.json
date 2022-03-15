@@ -1,0 +1,13 @@
+{
+  "title": "Minimal Client Template",
+  "name": "minimal-client-template",
+  "clientPackageName": "com.wildlifestudios.client",
+  "owner": "",
+  "description": "",
+  "localUrl": "localhost",
+  "localPort": 3250,
+  "stagUrl": "integration-demo.metagame-modules.us-east-1.general.stag.wildlife.io",
+  "stagPort": 3250,
+  "prodUrl": "your.prod.url.here",
+  "prodPort": 3250
+}

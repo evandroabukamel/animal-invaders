@@ -1,0 +1,20 @@
+{
+    "name": "Client.Services.Authentication",
+    "references": [
+        "Wildlife.Authentication",
+        "Wildlife.Metagame.Abstractions",
+        "Wildlife.MetagameBase",
+        "Client.Protos"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        "UnityEditor.CoreModule.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
