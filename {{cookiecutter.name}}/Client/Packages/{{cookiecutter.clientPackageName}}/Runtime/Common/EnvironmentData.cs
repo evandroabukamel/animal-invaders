@@ -23,19 +23,19 @@ namespace Common
         public static readonly EnvironmentData Local = new EnvironmentData
         {
             MetagameUrl = "{{cookiecutter.localUrl}}",
-            MetagamePort = Int32.Parse("{{cookiecutter.localPort}")
+            MetagamePort = Int32.Parse("{{cookiecutter.localPort}}")
         };
         
         public static readonly EnvironmentData Stag = new EnvironmentData
         {
             MetagameUrl = "{{cookiecutter.stagUrl}}",
-            MetagamePort = Int32.Parse("{{cookiecutter.stagPort}")
+            MetagamePort = Int32.Parse("{{cookiecutter.stagPort}}")
         };
         
         public static readonly EnvironmentData Prod = new EnvironmentData
         {
             MetagameUrl = "{{cookiecutter.prodUrl}}",
-            MetagamePort = Int32.Parse("{{cookiecutter.prodPort}")
+            MetagamePort = Int32.Parse("{{cookiecutter.prodPort}}")
         };
 
         public static EnvironmentData ReadEnv(EnvironmentData fallback = default)
