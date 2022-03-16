@@ -17,7 +17,7 @@
         "TFG.Analytics",
         "UI",
         "Common",
-        "Client.Services.Authentication"
+        "Services.Authentication"
     ],
     "includePlatforms": [],
     "excludePlatforms": [

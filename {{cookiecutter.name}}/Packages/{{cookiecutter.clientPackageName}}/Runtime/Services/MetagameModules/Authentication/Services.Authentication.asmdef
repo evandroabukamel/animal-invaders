@@ -1,10 +1,10 @@
 {
-    "name": "Client.Services.Authentication",
+    "name": "Services.Authentication",
     "references": [
         "Wildlife.Authentication",
         "Wildlife.Metagame.Abstractions",
         "Wildlife.MetagameBase",
-        "Client.Protos"
+        "Protos"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
