@@ -99,8 +99,6 @@ public class Bootstrap : MonoBehaviour
             {
                 Logger.LogError($"Bootstrap::Connected > Login Error [ {er.Code}: {er.Msg} ]");
             }
-
-            client.Reconnect();
         });
     }
 
