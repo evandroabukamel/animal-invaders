@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6fa3f2a654b49348d281e68c10bc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainView: {fileID: 0}
+  mainView: {fileID: 2052021217}
 --- !u!1 &1715280545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,4 +1161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271f367e4ac3447cc8fe9bbbaaa02fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectNameTitle: {fileID: 0}
+  projectNameTitle: {fileID: 1869744210}
