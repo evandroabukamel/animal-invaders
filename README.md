@@ -31,4 +31,9 @@ however you will need to set a URL and a port for running it in production (prod
 ## Local development
 
 If you're developing locally on the template, you'll notice that the IDE won't work
-since we're using placeholders like `{{cookiecutter.name}}` inside the codebase.
+since we're using placeholders like `{{cookiecutter.name}}` inside the codebase. 
+Unity project also will fail to open because package.json has placeholders such as `{{cookiecutter.title}}` 
+which are invalid character sequences for a package.json file.
+
+However, you can run `make local-test` in order to enable local development. After that, you can freely
+edit the code, and when you're ready to commit, just run `make undo-local-test` beforehand.
