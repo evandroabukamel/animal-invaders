@@ -6,6 +6,10 @@ namespace Common
     public static class PlayerPrefsKeys
     {
         /// <summary>
+        /// Key to store the Pitaya Log Level into PlayerPrefs.
+        /// </summary>
+        public const string PitayaLogLevelKey = Defines.PitayaLogLevelKey;
+        /// <summary>
         /// Key to store the metagame connection port into PlayerPrefs.
         /// </summary>
         public const string MetagamePort = "metagame_port";
@@ -22,8 +26,8 @@ namespace Common
 
         public static readonly EnvironmentData Local = new EnvironmentData
         {
-            MetagameUrl = "localhost",
-            MetagamePort = Int32.Parse("3250")
+            MetagameUrl = "{{cookiecutter.localUrl}}",
+            MetagamePort = Int32.Parse("{{cookiecutter.localPort}}")
         };
         
         public static readonly EnvironmentData Stag = new EnvironmentData

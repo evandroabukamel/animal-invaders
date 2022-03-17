@@ -1,6 +1,6 @@
 <!-- 
-link.xml file sets all assemblies that should be preserved during buils, avoiding code stripping. 
-If you have code that might be not be detected as reachable during the build, this code might be stripped at build.
+link.xml file sets all assemblies that should be preserved during builds, avoiding code stripping. 
+If you have code that might not be detected as reachable during the build, consider adding the assembly to this file.
 -->
 
 <linker>

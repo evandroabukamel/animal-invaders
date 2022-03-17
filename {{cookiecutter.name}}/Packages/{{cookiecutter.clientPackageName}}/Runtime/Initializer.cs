@@ -3,7 +3,6 @@ using System.IO;
 using Common;
 using Contexts;
 using Contexts.MetagameModules;
-using Services.MetagameModules.Authentication;
 using Pitaya;
 using TFG.Modules;
 using UnityEngine;
@@ -30,7 +29,7 @@ public interface IInitializer
 
 public class Initializer : IInitializer
 {
-    // Environment Context.
+    // Shared Context.
     private SharedContext _sharedContext;
 
     // Minimal Metagame Modules Contexts.
@@ -137,11 +136,10 @@ public class Initializer : IInitializer
         _metagameAuthenticationContext = new AuthenticationContext();
             
         _metagameAuthenticationContext.HooksBuilder    = new AuthenticationHooksBuilder(_metagameBaseContext.HookSerializer);
-        _metagameAuthenticationContext.AccountProvider = new AccountProvider(_metagameAuthenticationContext.HooksBuilder);
         
         _metagameAuthenticationContext.Client      = new MetagameAuthenticationClient(_metagameBaseContext.Client, _sharedContext.AccountFilePersistency, _metagameAuthenticationContext.HooksBuilder);
         _metagameAuthenticationContext.LoginClient = new MetagameLoginClient(_metagameAuthenticationContext.Client, _metagameConfigurationContext.Client, _sharedContext.AccountFilePersistency);
-            
+    
         _metagameAuthenticationContext.ReadOnlyPlayer = _sharedContext.AccountFilePersistency.Read<ReadOnlyPlayer>();
     }
 }

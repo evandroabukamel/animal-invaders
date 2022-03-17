@@ -1,4 +1,4 @@
-//#if UNITY_EDITOR
+#if UNITY_EDITOR
 using UnityEditor;
 
 public class EnvironmentTools
@@ -6,7 +6,7 @@ public class EnvironmentTools
     const string kLocalTool = "Tools/Environment/Local";
     const string kStagTool = "Tools/Environment/Stag";
     const string kProdTool = "Tools/Environment/Prod";
-        
+
     [MenuItem(kLocalTool, true)]
     static bool UseLocalEnvValidate()
     {
@@ -18,7 +18,7 @@ public class EnvironmentTools
     {
         SetEnv(EnvironmentData.Local);
     }
-        
+
     [MenuItem(kStagTool, true)]
     static bool UseStagEnvValidate()
     {
@@ -57,4 +57,4 @@ public class EnvironmentTools
         EnvironmentData.SaveEnv(environment);
     }
 }
-//#endif
+#endif

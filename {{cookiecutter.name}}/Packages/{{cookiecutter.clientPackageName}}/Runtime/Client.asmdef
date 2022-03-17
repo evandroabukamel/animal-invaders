@@ -16,8 +16,7 @@
         "TFG.MainThreadDispatcher",
         "TFG.Analytics",
         "UI",
-        "Common",
-        "Services.Authentication"
+        "Common"
     ],
     "includePlatforms": [],
     "excludePlatforms": [
