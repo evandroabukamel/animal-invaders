@@ -21,3 +21,18 @@ undo-local-test:
         sed -E -i '' 's/localhost/{{cookiecutter\.localUrl}}/g' $$file; \
         sed -E -i '' 's/3250/{{cookiecutter\.localPort}}/g' $$file; \
 	done
+
+protos: protos-clean protos-lint ## Generate protobuf files
+	@prototool generate
+	@find . 					\
+		-type f -name '*.pb.go' 			\
+		-not -path "./vendor/*"			\
+		-exec sed -i "" 's/,omitempty//' {} \;
+	@echo "Protobuf files generated."
+
+protos-lint:
+	@-prototool lint
+
+protos-clean:
+	@find . -type f -name '*.pb.cs' -delete
+	@find . -type f -name '*.pb.go' -delete

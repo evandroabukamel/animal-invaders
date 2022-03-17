@@ -1,0 +1,10 @@
+syntax = "proto3";
+package protos.v1;
+option go_package = "git.topfreegames.com/ring/template/minimal-client-template/ExampleProtos";
+
+// Example additional arguments for the metagame.authenticationHandler.createAccount route request.
+message CreateAccountAdditionalArgs {
+    string name = 1;
+    int32 tutorial_step = 2;
+    string chosen_server_region = 3;
+}

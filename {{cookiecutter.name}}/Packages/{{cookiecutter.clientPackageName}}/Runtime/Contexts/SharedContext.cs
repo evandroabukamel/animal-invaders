@@ -8,7 +8,7 @@ using ILogger = Wildlife.Logging.ILogger;
 
 namespace Contexts
 {
-    public struct EnvironmentContext
+    public struct SharedContext
     {
         public IPitayaQueueDispatcher PitayaQueueDispatcher;
         public ILogger Logger;

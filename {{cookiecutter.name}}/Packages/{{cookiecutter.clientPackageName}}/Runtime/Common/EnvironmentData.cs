@@ -22,8 +22,8 @@ namespace Common
 
         public static readonly EnvironmentData Local = new EnvironmentData
         {
-            MetagameUrl = "{{cookiecutter.localUrl}}",
-            MetagamePort = Int32.Parse("{{cookiecutter.localPort}}")
+            MetagameUrl = "localhost",
+            MetagamePort = Int32.Parse("3250")
         };
         
         public static readonly EnvironmentData Stag = new EnvironmentData

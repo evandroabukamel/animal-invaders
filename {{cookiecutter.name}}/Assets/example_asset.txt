@@ -1,2 +1,0 @@
-Place all assets in this folder. This accounts for images, fonts, textures, models, every asset generated outside Unity.
-(@Paulo and @Backes, you can organize this folder in any way you want)

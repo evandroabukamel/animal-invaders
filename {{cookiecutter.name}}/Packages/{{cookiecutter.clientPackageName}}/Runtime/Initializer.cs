@@ -10,6 +10,7 @@ using UnityEngine;
 using Wildlife.Authentication;
 using Wildlife.Configuration;
 using Wildlife.MetagameBase;
+using Wildlife.MetagameBase.DeviceInfo;
 using Wildlife.Persistency;
 using JsonSerializer = Wildlife.Persistency.Json.JsonSerializer;
 using Logger = Wildlife.Logging.Logger;
@@ -17,7 +18,7 @@ using ReadOnlyPlayer = Wildlife.MetagameModuleAbstractions.Player;
 
 public interface IInitializer
 {
-    EnvironmentContext EnvironmentContext { get; }
+    SharedContext SharedContext { get; }
     MetagameBaseContext MetagameBaseContext { get; }
     ConfigurationContext ConfigurationContext { get; }
     AuthenticationContext AuthenticationContext { get; }
@@ -30,7 +31,7 @@ public interface IInitializer
 public class Initializer : IInitializer
 {
     // Environment Context.
-    private EnvironmentContext _environmentContext;
+    private SharedContext _sharedContext;
 
     // Minimal Metagame Modules Contexts.
     private MetagameBaseContext   _metagameBaseContext;
@@ -39,35 +40,44 @@ public class Initializer : IInitializer
 
     public Initializer()
     {
-        _environmentContext = new EnvironmentContext();
+        _sharedContext = new SharedContext();
             
-        // (Optional) Sets your DeviceInfo into the environment context here.
-        // _environmentContext.DeviceInfo = YourDeviceInfo
+        // Sets default dummy DeviceInfo into the shared context here.
+        _sharedContext.DeviceInfo = new DeviceInfo()
+        {
+            FIU = Guid.NewGuid().ToString(),
+            BundleId = "com.bundle.example",
+            DeviceType = "DeviceType",
+            OSVersion = "1.0",
+            Region = "Region",
+            Language = "Language",
+            AdId = "AdId",
+        };
 
-        _environmentContext.PitayaQueueDispatcher = MainQueueDispatcher.Create();
-        _environmentContext.Logger = Logger.logger;
-        _environmentContext.AnalyticsTfg = new NullTFGAnalytics();
-        _environmentContext.Serializer = new JsonSerializer();
+        _sharedContext.PitayaQueueDispatcher = MainQueueDispatcher.Create();
+        _sharedContext.Logger = Logger.logger;
+        _sharedContext.AnalyticsTfg = new NullTFGAnalytics();
+        _sharedContext.Serializer = new JsonSerializer();
 
         // Retrieves the persistent data directory (Read Only) and create this directory if it does not exist yet.
         var root = Application.persistentDataPath;
         Directory.CreateDirectory(root);
 
         // Sets the paths to the persistent account data and the directory holding all configs (i.e. store config).
-        _environmentContext.AccountDataFilePath = $"{root}/account.json";
-        _environmentContext.ConfigurationDataDirectoryPath = $"{root}/configs";
-        Directory.CreateDirectory(_environmentContext.ConfigurationDataDirectoryPath);
+        _sharedContext.AccountDataFilePath = $"{root}/account.json";
+        _sharedContext.ConfigurationDataDirectoryPath = $"{root}/configs";
+        Directory.CreateDirectory(_sharedContext.ConfigurationDataDirectoryPath);
 
         // Create file persistence for account data based on the provided account file path.
-        _environmentContext.AccountFilePersistency = new FilePersistency(_environmentContext.AccountDataFilePath, _environmentContext.Serializer);
+        _sharedContext.AccountFilePersistency = new FilePersistency(_sharedContext.AccountDataFilePath, _sharedContext.Serializer);
 
         // Create file persistence for configuration data based on the provided configuration file path.
-        _environmentContext.ConfigurationFilePersistency = new FilePersistency(_environmentContext.ConfigurationDataDirectoryPath, _environmentContext.Serializer);
+        _sharedContext.ConfigurationFilePersistency = new FilePersistency(_sharedContext.ConfigurationDataDirectoryPath, _sharedContext.Serializer);
 
-        _environmentContext.ThreadDispatcher = ThreadDispatcher.defaultDispatcher;
+        _sharedContext.ThreadDispatcher = ThreadDispatcher.defaultDispatcher;
     }
 
-    public EnvironmentContext EnvironmentContext => _environmentContext;
+    public SharedContext SharedContext => _sharedContext;
 
     public MetagameBaseContext MetagameBaseContext => _metagameBaseContext;
 
@@ -80,9 +90,9 @@ public class Initializer : IInitializer
         _metagameBaseContext = new MetagameBaseContext();
             
         _metagameBaseContext.HookSerializer      = new HookProtobufSerializer();
-        _metagameBaseContext.RequestFactory      = new MetagameRequestFactory(_environmentContext.ThreadDispatcher, _environmentContext.Logger);
+        _metagameBaseContext.RequestFactory      = new MetagameRequestFactory(_sharedContext.ThreadDispatcher, _sharedContext.Logger);
 
-        _metagameBaseContext.DeviceInfoRetriever = _environmentContext.DeviceInfo;
+        _metagameBaseContext.DeviceInfoRetriever = _sharedContext.DeviceInfo;
 
         var metagameConfig = new MetagameConfig
         {
@@ -92,12 +102,16 @@ public class Initializer : IInitializer
 
         _metagameBaseContext.ClientBuilder = new MetagameClientBuilder(metagameConfig, new PitayaConfig(), _metagameBaseContext.DeviceInfoRetriever)
         {
-            Dispatcher = _environmentContext.PitayaQueueDispatcher,
+            Dispatcher = _sharedContext.PitayaQueueDispatcher,
         };
 
         _metagameBaseContext.Client = (MetagameClient) _metagameBaseContext.ClientBuilder.Build();
             
-        _metagameBaseContext.RequestHandler = new MetagameRequestHandler(_metagameBaseContext.Client, _metagameBaseContext.RequestFactory, _environmentContext.ThreadDispatcher, _environmentContext.Logger);
+        _metagameBaseContext.RequestHandler = new MetagameRequestHandler(
+            _metagameBaseContext.Client, 
+            _metagameBaseContext.RequestFactory, 
+            _sharedContext.ThreadDispatcher, 
+            _sharedContext.Logger);
     }
         
     public void InitializeMetagameConfiguration()
@@ -111,7 +125,11 @@ public class Initializer : IInitializer
             // Required configs must be added here (i.e. config for installed modules).
         };
 
-        _metagameConfigurationContext.Client = new MetagameConfigurationClient(configInfos, _metagameBaseContext.Client, _environmentContext.ConfigurationFilePersistency, _metagameConfigurationContext.HooksBuilder);
+        _metagameConfigurationContext.Client = new MetagameConfigurationClient(
+            configInfos, 
+            _metagameBaseContext.Client, 
+            _sharedContext.ConfigurationFilePersistency, 
+            _metagameConfigurationContext.HooksBuilder);
     }
         
     public void InitializeMetagameAuthentication()
@@ -121,9 +139,9 @@ public class Initializer : IInitializer
         _metagameAuthenticationContext.HooksBuilder    = new AuthenticationHooksBuilder(_metagameBaseContext.HookSerializer);
         _metagameAuthenticationContext.AccountProvider = new AccountProvider(_metagameAuthenticationContext.HooksBuilder);
         
-        _metagameAuthenticationContext.Client      = new MetagameAuthenticationClient(_metagameBaseContext.Client, _environmentContext.AccountFilePersistency, _metagameAuthenticationContext.HooksBuilder);
-        _metagameAuthenticationContext.LoginClient = new MetagameLoginClient(_metagameAuthenticationContext.Client, _metagameConfigurationContext.Client, _environmentContext.AccountFilePersistency);
+        _metagameAuthenticationContext.Client      = new MetagameAuthenticationClient(_metagameBaseContext.Client, _sharedContext.AccountFilePersistency, _metagameAuthenticationContext.HooksBuilder);
+        _metagameAuthenticationContext.LoginClient = new MetagameLoginClient(_metagameAuthenticationContext.Client, _metagameConfigurationContext.Client, _sharedContext.AccountFilePersistency);
             
-        _metagameAuthenticationContext.ReadOnlyPlayer = _environmentContext.AccountFilePersistency.Read<ReadOnlyPlayer>();
+        _metagameAuthenticationContext.ReadOnlyPlayer = _sharedContext.AccountFilePersistency.Read<ReadOnlyPlayer>();
     }
 }

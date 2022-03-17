@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
 using UnityEditor;
 
 public class EnvironmentTools
@@ -57,4 +57,4 @@ public class EnvironmentTools
         EnvironmentData.SaveEnv(environment);
     }
 }
-#endif
+//#endif

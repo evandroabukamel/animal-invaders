@@ -5,6 +5,7 @@ using Logger = Wildlife.Logging.Logger;
 using Pitaya;
 using TFG.Modules;
 using UI;
+using UnityEngine.Networking;
 using Wildlife.MetagameBase;
 
 /// <summary>
@@ -33,7 +34,7 @@ public class Bootstrap : MonoBehaviour
         _initializer = new Initializer();
 
         // (Optional) In case device information is available to be set, DeviceInfo might be set here.  
-        // Otherwise, a dummy standard device information is automatically set in environment context.
+        // Otherwise, a dummy standard device information is automatically set in shared context.
         // _initializer.environmentContext.deviceInfo = YourDeviceInfo;
 
         // Instantiates and initializes metagame modules for a minimal client.
@@ -121,7 +122,7 @@ public class Bootstrap : MonoBehaviour
     /// This method is just an example implementation and this might be customized by the game.
     /// Therefore, feel free to edit this method as desired.
     /// </summary>
-    void OnConnectionFailed(IMetagameClient client, NetworkError error)
+    void OnConnectionFailed(IMetagameClient client, Pitaya.NetworkError error)
     {
         Logger.LogError("Bootstrap::ConnectionFailed > Metagame Client Connection Failed!");
     }
@@ -133,7 +134,7 @@ public class Bootstrap : MonoBehaviour
     /// This method is just an example implementation and this might be customized by the game.
     /// Therefore, feel free to edit this method as desired.
     /// </summary>
-    void OnDisconnected(IMetagameClient client, NetworkError error)
+    void OnDisconnected(IMetagameClient client, Pitaya.NetworkError error)
     {
         Logger.LogInfo("Bootstrap::Disconnected > Metagame Client Disconnected!");
     }

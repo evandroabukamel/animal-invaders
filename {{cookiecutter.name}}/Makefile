@@ -8,7 +8,22 @@ CI_COVERAGE := -enableCodeCoverage -coverageResultsPath . -coverageOptions enabl
 
 SHELL := /bin/bash
 
-.PHONY:
+.PHONY: protos protos-clean protos-lint
+
+protos: protos-clean protos-lint ## Generate protobuf files
+	@prototool generate
+	@find . 					\
+		-type f -name '*.pb.go' 			\
+		-not -path "./vendor/*"			\
+		-exec sed -i "" 's/,omitempty//' {} \;
+	@echo "Protobuf files generated."
+
+protos-lint:
+	@-prototool lint
+
+protos-clean:
+	@find . -type f -name '*.pb.cs' -delete
+	@find . -type f -name '*.pb.go' -delete
 
 help: ## Display a help screen for declared commands
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
