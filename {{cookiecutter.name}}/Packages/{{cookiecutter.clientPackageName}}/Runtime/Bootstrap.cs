@@ -5,7 +5,6 @@ using Logger = Wildlife.Logging.Logger;
 using Pitaya;
 using TFG.Modules;
 using UI;
-using UnityEngine.Networking;
 using Wildlife.MetagameBase;
 
 /// <summary>

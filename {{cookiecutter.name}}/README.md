@@ -25,20 +25,20 @@ You will need to execute commands similar to the ones below.
 Running the metagame server:
 ```sh
 cd server
-make setup
-make kill-deps
-make deps
-make run
+python3 tasks.py setup
+python3 tasks.py kill-deps
+python3 tasks.py deps
+python3 tasks.py run
 ```
 
 Running the connector:
 ```sh
 cd ..
 cd connector
-make setup
-make kill-deps
-make deps
-make run
+python3 tasks.py setup
+python3 tasks.py kill-deps
+python3 tasks.py deps
+python3 tasks.py run
 ```
 
 Please check out the metagame server and connector documentations to verify these commands and start the required servers.
