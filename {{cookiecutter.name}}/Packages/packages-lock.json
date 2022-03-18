@@ -318,7 +318,7 @@
       },
       "url": "https://artifactory.tfgco.com/artifactory/api/npm/npm-local"
     },
-    "minimal-client-template": {
+    "{{cookiecutter.name}}": {
       "version": "file:{{cookiecutter.clientPackageName}}",
       "depth": 0,
       "source": "embedded",

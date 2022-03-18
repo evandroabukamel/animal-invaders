@@ -1,8 +1,0 @@
-syntax = "proto3";
-package protos.v1;
-option go_package = "git.topfreegames.com/ring/template/minimal-client-template/ExampleProtos";
-
-// Example additional payload for the metagame.authenticationHandler.authenticate route response.
-message AuthenticateAdditionalPayload {
-    repeated string custom_player_tags = 1;
-}
