@@ -1,7 +1,7 @@
 using Wildlife.Configuration;
 using Wildlife.Configuration.Interface;
 
-namespace Contexts.MetagameModules
+namespace Core.Contexts.MetagameModules
 {
     ///<summary>
     ///A set of configuration resources related to the configuration module which includes a hook builder and a metagame client.

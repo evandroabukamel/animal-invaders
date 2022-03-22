@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Wildlife.MetagameBase;
 
-namespace UI
+namespace Core.UI
 {
     public class MainView : MonoBehaviour
     {
         private IMetagameClient _metagameClient;
-
+          
         [SerializeField] private Text projectNameTitle;
-
+        [SerializeField] private Text statusMessage;
+        
         private void Awake()
         {
             projectNameTitle.text = "Minimal Client";
+        }
+
+        private void Update()
+        {
+            UpdateStatusMessage();
         }
 
         public void SetMetagameClient(IMetagameClient metagameClient)
@@ -22,14 +26,25 @@ namespace UI
             _metagameClient = metagameClient;
         }
 
-        public void Reauthenticate()
+        private void UpdateStatusMessage()
         {
-            if (_metagameClient?.IsConnected() == true)
+            if (_metagameClient.IsConnected())
             {
-                _metagameClient?.Reconnect();
-                return;
+                statusMessage.text = "Connected!";
             }
+            else
+            {
+                statusMessage.text = "Disconnected!";
+            }
+        }
 
+        public void Disconnect()
+        { 
+            _metagameClient?.Disconnect();
+        }
+        
+        public void Authenticate()
+        {
             _metagameClient?.Connect();
         }
     }

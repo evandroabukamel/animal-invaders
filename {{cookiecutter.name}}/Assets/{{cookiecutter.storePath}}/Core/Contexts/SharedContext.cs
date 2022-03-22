@@ -1,12 +1,10 @@
-using System;
 using Pitaya;
 using TFG.Modules.Interface;
 using Wildlife.MetagameBase.DeviceInfo;
 using Wildlife.Persistency;
-using IAnalytics = Wildlife.MetagameBase.DeviceInfo.IAnalytics;
 using ILogger = Wildlife.Logging.ILogger;
 
-namespace Contexts
+namespace Core.Contexts
 {
     ///<summary>
     ///A set of shared resources that might be used throughout the whole project, by all modules and other code contexts.

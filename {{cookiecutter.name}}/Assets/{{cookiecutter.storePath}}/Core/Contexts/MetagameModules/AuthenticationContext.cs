@@ -1,7 +1,7 @@
 using Wildlife.Authentication;
 using Wildlife.MetagameModuleAbstractions;
 
-namespace Contexts.MetagameModules
+namespace Core.Contexts.MetagameModules
 {
     ///<summary>
     ///A set of authentication resources related to the authentication module which includes a hook builder, a player,

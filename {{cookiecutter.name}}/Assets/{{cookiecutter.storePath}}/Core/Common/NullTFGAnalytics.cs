@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using Google.Protobuf;
 using TFG.Modules.AnalyticsModule;
-using Wildlife.MetagameBase.DeviceInfo;
 
-namespace Common
+namespace Core.Common
 {
     public class NullTFGAnalytics : TFG.Modules.IAnalytics
     {

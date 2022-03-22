@@ -1,7 +1,7 @@
 using Wildlife.MetagameBase;
 using Wildlife.MetagameBase.DeviceInfo;
 
-namespace Contexts.MetagameModules
+namespace Core.Contexts.MetagameModules
 {
     ///<summary>
     ///A set of metagame resources related to the metagame base module which includes a metagame client builder,

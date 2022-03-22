@@ -1,8 +1,7 @@
 using System;
-using Core;
 using UnityEngine;
 
-namespace Environment
+namespace Core.Environment
 {
     public struct EnvironmentData
     {

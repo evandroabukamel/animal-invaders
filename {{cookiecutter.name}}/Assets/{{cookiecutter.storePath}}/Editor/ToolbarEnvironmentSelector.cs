@@ -1,9 +1,7 @@
 #if UNITY_EDITOR
 using Core;
-using Environment;
+using Core.Environment;
 using UnityEditor;
-using UnityEngine;
-using Logger = Wildlife.Logging.Logger;
 
 namespace Editor
 {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Common;
-using Contexts;
-using Contexts.MetagameModules;
 using Core;
+using Core.Common;
+using Core.Contexts;
+using Core.Contexts.MetagameModules;
 using Pitaya;
 using TFG.Modules;
 using UnityEngine;
@@ -163,14 +163,19 @@ public class GameInitializer
 
     async void RequestPlayerAccount(IMetagameClient metagameClient)
     {
-        var (player, error) = await _metagameAuthenticationContext.LoginClient.Login();
-        if(error == null)
+        var (player, errors) = await _metagameAuthenticationContext.LoginClient.Login();
+        if(errors == null || errors.Length == 0)
         {
             Logger.LogInfo($"Logged In Player: < AccountID: {player.Id} > logged in!");
         }
         else
         {
-            Logger.LogError($"Bootstrap::Connected > Login Error [ {error} ]");
+            var fields = new Dictionary<string, object>();
+            foreach (var error in errors)
+            {
+                fields.Add(error.Code, error.Msg);
+            }
+            Logger.WithFields(fields).LogError($"Bootstrap::Connected > Login Error");
             metagameClient.Disconnect();
         }
     }
