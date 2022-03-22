@@ -162,31 +162,15 @@ public class GameInitializer
 
     async void RequestPlayerAccount(IMetagameClient metagameClient)
     {
-        Player readPlayer = _sharedContext.AccountFilePersistency.Read<Player>();
-        if (readPlayer != null)
+        var (player, error) = await _metagameAuthenticationContext.LoginClient.Login();
+        if(error == null)
         {
-            var (player, error) = await _metagameAuthenticationContext.Client.Authenticate();
-            if(error == null) {
-                Logger.LogInfo($"Authenticated Player: < AccountID: {player.Id} > logged in!");
-            }
-            else
-            {
-                Logger.LogError($"Bootstrap::Connected > Authentication Login Error [ {error.Code}: {error.Msg} ]");
-                metagameClient.ForceDisconnect();
-            }
+            Logger.LogInfo($"Logged In Player: < AccountID: {player.Id} > logged in!");
         }
         else
         {
-            var (player, error) = await _metagameAuthenticationContext.Client.Create();
-            if(error == null)
-            {
-                Logger.LogInfo($"New Player: < AccountID: {player.Id} > logged in!");
-            }
-            else
-            {
-                Logger.LogError($"Bootstrap::Connected > Player Creation Login Error [ {error.Code}: {error.Msg} ]");
-                metagameClient.ForceDisconnect();
-            }
+            Logger.LogError($"Bootstrap::Connected > Login Error [ {error} ]");
+            metagameClient.Disconnect();
         }
     }
 
@@ -199,19 +183,7 @@ public class GameInitializer
     public virtual void OnConnected(IMetagameClient client)
     {
         Logger.LogInfo("Bootstrap::Connected > Metagame Client Connected! Attempt to Login client...");
-
         RequestPlayerAccount(client);
-        /*_initializer.AuthenticationContext.LoginClient.Login(player =>
-        {
-            Logger.LogInfo($"Logged In Player: < AccountID: {player.Id} > logged in!");
-        }, errors =>
-        {
-            foreach (var er in errors)
-            {
-                Logger.LogError($"Bootstrap::Connected > Login Error [ {er.Code}: {er.Msg} ]");
-            }
-            client.Disconnect();
-        });*/
     }
 
     /// <summary>

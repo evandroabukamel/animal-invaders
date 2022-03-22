@@ -46,17 +46,16 @@ public class Bootstrap : MonoBehaviour
 
         // Sets up the MainView with the bare minimum for allowing metagame client connection events to be triggered.
         mainView.SetMetagameClient(_gameInitializer.MetagameBaseContext.Client);
-
-        // Starts the client by connecting the client to the metagame server and logging in the current player.
-        Start();
     }
 
     /// <summary>
+    /// Starts the view, automatically called by Unity.
     /// Connects the metagame client to the metagame server and logs in the current player.
     /// This will trigger the OnConnectedEvent delegate (OnConnected method).
     /// </summary>
     void Start()
     {
+        // Starts the client by connecting the client to the metagame server and logging in the current player.
         _gameInitializer.StartGame();
     }
 

@@ -44,8 +44,11 @@ IGNORE_PATHS := -not -path "*/Library*" -not -path "*/Logs*" -not -path "*/obj*"
 FILE_FILTER := -name "*.cs" -or -name "*/Packages/manifest" -or -name "Makefile" -or -name "package.json" -or -name "packages-lock.json"
 MATCHING_FILES := $(shell find '{{cookiecutter.name}}' ${IGNORE_PATHS} ${FILE_FILTER})
 
+print-updatable-files:
+	@echo "Files to be updated for local test: ${MATCHING_FILES}"
+
 local-test:
-	## @echo "Files to be updated for local test: ${MATCHING_FILES}"
+
 	@for file in ${MATCHING_FILES}; do \
 		sed -i '' "$(PACKAGE_REPLACE_STR)" $$file; \
 		sed -i '' "$(NAME_REPLACE_STR)" $$file; \
@@ -56,7 +59,6 @@ local-test:
 	done
 
 undo-local-test:
-	## @echo "Files to be updated into template mode: ${MATCHING_FILES}"
 	@for file in ${MATCHING_FILES}; do \
 		sed -i '' "$(PACKAGE_UNDO_REPLACE_STR)" $$file; \
         sed -i '' "$(NAME_UNDO_REPLACE_STR)" $$file; \

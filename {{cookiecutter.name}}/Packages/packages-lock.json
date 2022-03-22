@@ -318,17 +318,6 @@
       },
       "url": "https://artifactory.tfgco.com/artifactory/api/npm/npm-local"
     },
-    "{{cookiecutter.name}}": {
-      "version": "file:{{cookiecutter.clientPackageName}}",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.wildlifestudios.logger-interface": "1.0.0-3",
-        "com.wildlifestudios.metagame-base": "1.14.0",
-        "com.wildlifestudios.authentication": "1.7.1",
-        "com.wildlifestudios.metagame-module-abstractions": "1.2.4"
-      }
-    },
     "nuget.mono-cecil": {
       "version": "0.1.6-preview",
       "depth": 1,
