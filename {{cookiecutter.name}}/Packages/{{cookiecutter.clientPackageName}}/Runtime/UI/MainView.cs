@@ -14,7 +14,7 @@ namespace UI
 
         private void Awake()
         {
-            projectNameTitle.text = "{{cookiecutter.title}}";
+            projectNameTitle.text = "Minimal Client";
         }
 
         public void SetMetagameClient(IMetagameClient metagameClient)
@@ -26,7 +26,8 @@ namespace UI
         {
             if (_metagameClient?.IsConnected() == true)
             {
-                _metagameClient?.Disconnect();   
+                _metagameClient?.Reconnect();
+                return;
             }
 
             _metagameClient?.Connect();
