@@ -1,7 +1,7 @@
 {
   "title": "Minimal Client",
   "name": "minimal-client",
-  "clientPackageName": "com.wildlifestudios.client",
+  "storePath": "com.wildlifestudios.client",
   "owner": "",
   "description": "This is a minimal client that includes only authentication, configuration and persistence features.",
   "localUrl": "localhost",
