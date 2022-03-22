@@ -1,24 +1,9 @@
 using System;
+using Core;
 using UnityEngine;
 
-namespace Common
+namespace Environment
 {
-    public static class PlayerPrefsKeys
-    {
-        /// <summary>
-        /// Key to store the Pitaya Log Level into PlayerPrefs.
-        /// </summary>
-        public const string PitayaLogLevelKey = Defines.PitayaLogLevelKey;
-        /// <summary>
-        /// Key to store the metagame connection port into PlayerPrefs.
-        /// </summary>
-        public const string MetagamePort = "metagame_port";
-        /// <summary>
-        /// Key to store the metagame connection url into PlayerPrefs.
-        /// </summary>
-        public const string MetagameURL = "metagame_url";
-    }
-    
     public struct EnvironmentData
     {
         public string MetagameUrl;

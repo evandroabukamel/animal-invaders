@@ -18,6 +18,12 @@ LOCAL_URL_REPLACE := localhost
 LOCAL_PORT_PATTERN := {{cookiecutter.localPort}}
 LOCAL_PORT_REPLACE := 3250
 
+STAG_PORT_PATTERN := {{cookiecutter.stagPort}}
+STAG_PORT_REPLACE := 9050
+
+PROD_PORT_PATTERN := {{cookiecutter.prodPort}}
+PROD_PORT_REPLACE := 9150
+
 ## REPLACE COMMANDS (DO AND UNDO)
 
 PACKAGE_REPLACE_STR := s_$(PACKAGE_PATTERN)_$(PACKAGE_REPLACE)_g
@@ -38,6 +44,12 @@ LOCAL_URL_UNDO_REPLACE_STR := s_$(LOCAL_URL_REPLACE)_$(LOCAL_URL_PATTERN)_g
 LOCAL_PORT_REPLACE_STR := s_$(LOCAL_PORT_PATTERN)_$(LOCAL_PORT_REPLACE)_g
 LOCAL_PORT_UNDO_REPLACE_STR := s_$(LOCAL_PORT_REPLACE)_$(LOCAL_PORT_PATTERN)_g
 
+STAG_PORT_REPLACE_STR := s_$(STAG_PORT_PATTERN)_$(STAG_PORT_REPLACE)_g
+STAG_PORT_UNDO_REPLACE_STR := s_$(STAG_PORT_REPLACE)_$(STAG_PORT_PATTERN)_g
+
+PROD_PORT_REPLACE_STR := s_$(PROD_PORT_PATTERN)_$(PROD_PORT_REPLACE)_g
+PROD_PORT_UNDO_REPLACE_STR := s_$(PROD_PORT_REPLACE)_$(PROD_PORT_PATTERN)_g
+
 ## FIND FILES TO BE UPDATED
 COOKIECUTTER_TAGS := '{{cookiecutter.clientPackageName}}|{{cookiecutter.name}}|{{cookiecutter.title}}|{{cookiecutter.description}}|{{cookiecutter.localUrl}}|{{cookiecutter.loaclPort}}'
 IGNORE_PATHS := -not -path "*/Library*" -not -path "*/Logs*" -not -path "*/obj*"
@@ -56,6 +68,8 @@ local-test:
 		sed -i '' "$(DESCRIPTION_REPLACE_STR)" $$file; \
 		sed -i '' "$(LOCAL_URL_REPLACE_STR)" $$file; \
 		sed -i '' "$(LOCAL_PORT_REPLACE_STR)" $$file; \
+		sed -i '' "$(STAG_PORT_REPLACE_STR)" $$file; \
+		sed -i '' "$(PROD_PORT_REPLACE_STR)" $$file; \
 	done
 
 undo-local-test:
@@ -66,4 +80,6 @@ undo-local-test:
         sed -i '' "$(DESCRIPTION_UNDO_REPLACE_STR)" $$file; \
         sed -i '' "$(LOCAL_URL_UNDO_REPLACE_STR)" $$file; \
         sed -i '' "$(LOCAL_PORT_UNDO_REPLACE_STR)" $$file; \
+        sed -i '' "$(STAG_PORT_UNDO_REPLACE_STR)" $$file; \
+        sed -i '' "$(PROD_PORT_UNDO_REPLACE_STR)" $$file; \
 	done

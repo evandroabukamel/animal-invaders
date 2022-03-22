@@ -1,0 +1,33 @@
+{
+    "name": "Editor",
+    "references": [
+        "TFG.Core",
+        "Wildlife.Authentication",
+        "Wildlife.Configuration.Interface",
+        "Wildlife.Configuration",
+        "Wildlife.Logging",
+        "Wildlife.MetagameBase",
+        "Wildlife.Metagame.Abstractions",
+        "Wildlife.MetagameBase.DeviceInfo",
+        "Wildlife.Persistency",
+        "Wildlife.Persistency.Json",
+        "Wildlife.ThreadDispatcher",
+        "Wildlife.UnityLogger",
+        "TFG.UnityToolbox.UnityEditor",
+        "Client"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "UnityEditor.CoreModule.dll",
+        "Pitaya.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
