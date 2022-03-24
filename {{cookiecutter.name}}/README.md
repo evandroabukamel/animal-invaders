@@ -25,12 +25,15 @@ You will need to execute commands similar to the ones below.
 
 Running the metagame and connector servers:
 ```sh
-cd server
-python3 tasks.py setup
+python3 tasks.py setup         # install dependencies
+python3 tasks.py deps          # run dependencies
+python3 tasks.py migrate       # migrate database
+
+python3 tasks.py run-connector # runs the connector, blocking the current shell session.
+python3 tasks.py run-metagame  # runs the metagame, blocking the current shell session.
+
+# Run kill-deps once you stopped your tests.
 python3 tasks.py kill-deps
-python3 tasks.py deps
-python3 tasks.py run-metagame
-python3 tasks.py run-connector
 ```
 
 Please check out the metagame server and connector documentations to verify these commands and start the required servers.
