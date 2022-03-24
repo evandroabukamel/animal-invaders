@@ -4,6 +4,7 @@ This is a minimal cookiecutter client template that will create a metagame clien
 
 - Authentication
 - Simple Configuration
+- Configuration
 - SQL Persistence
 - Metagame Base
 - Pitaya v2
