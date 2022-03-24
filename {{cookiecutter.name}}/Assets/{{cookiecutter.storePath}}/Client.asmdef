@@ -1,0 +1,36 @@
+{
+    "name": "Client",
+    "references": [
+        "TFG.Core",
+        "Wildlife.Authentication",
+        "Wildlife.Configuration.Interface",
+        "Wildlife.Configuration",
+        "Wildlife.Logging",
+        "Wildlife.MetagameBase",
+        "Wildlife.Metagame.Abstractions",
+        "Wildlife.MetagameBase.DeviceInfo",
+        "Wildlife.Persistency",
+        "Wildlife.Persistency.Json",
+        "Wildlife.ThreadDispatcher",
+        "Wildlife.UnityLogger",
+        "TFG.MainThreadDispatcher",
+        "TFG.Analytics",
+        "UI",
+        "Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "WSA"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "UnityEditor.CoreModule.dll",
+        "Pitaya.dll",
+        "Google.Protobuf.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

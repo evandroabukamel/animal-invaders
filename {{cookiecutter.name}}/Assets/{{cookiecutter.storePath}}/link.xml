@@ -1,0 +1,28 @@
+<!-- 
+link.xml file sets all assemblies that should be preserved during builds, avoiding code stripping. 
+If you have code that might not be detected as reachable during the build, consider adding the assembly to this file.
+-->
+
+<linker>
+    <assembly fullname="Client" preserve="all"/>
+    <assembly fullname="Common" preserve="all"/>
+    <assembly fullname="Contexts" preserve="all"/>
+    <assembly fullname="Contexts.MetagameModules" preserve="all"/>
+    <assembly fullname="Services.MetagameModules.Authentication" preserve="all"/>
+    <assembly fullname="UI" preserve="all"/>
+    
+    <assembly fullname="Wildlife.Authentication" preserve="all"/>
+    <assembly fullname="Wildlife.Configuration" preserve="all"/>
+    <assembly fullname="Wildlife.MetagameBase" preserve="all"/>
+    <assembly fullname="Wildlife.Metagame.Abstractions" preserve="all" />
+    <assembly fullname="Wildlife.MetagameBase.DeviceInfo" preserve="all"/>
+    <assembly fullname="Wildlife.Persistency.Json" preserve="all"/>
+
+    <assembly fullname="TFG.Adjust" preserve="all" />
+    <assembly fullname="TFG.MainThreadDispatcher" preserve="all"/>
+    <assembly fullname="TFG.SimpleJson" preserve="all" />
+    <assembly fullname="THiQL" preserve="all" />
+    <assembly fullname="Wildlife.DeviceInfo" preserve="all" />
+    
+    <assembly fullname="Google.Protobuf" preserve="all"/>
+</linker>
