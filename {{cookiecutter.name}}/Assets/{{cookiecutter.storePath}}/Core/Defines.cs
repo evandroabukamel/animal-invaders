@@ -9,13 +9,8 @@ namespace Core
     /// </summary>
     public static class Defines
     {
-        /// <summary>
-        /// Key to store the Pitaya Log Level into PlayerPrefs.
-        /// </summary>
-        public const string PitayaLogLevelKey = "pitaya_log_level";
-
         public static PitayaLogLevel PitayaLogLevel =
-            (PitayaLogLevel)PlayerPrefs.GetInt(PitayaLogLevelKey, (int)PitayaLogLevel.Disable);
+            (PitayaLogLevel)PlayerPrefs.GetInt(PlayerPrefsKeys.PitayaLogLevelKey, (int)PitayaLogLevel.Disable);
 
         // Enables the local or stag environment depending on how this app is running. 
 #if UNITY_EDITOR

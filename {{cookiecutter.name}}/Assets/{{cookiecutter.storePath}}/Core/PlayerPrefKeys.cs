@@ -8,7 +8,7 @@ namespace Core
         /// <summary>
         /// Key to store the Pitaya Log Level into PlayerPrefs.
         /// </summary>
-        public const string PitayaLogLevelKey = Defines.PitayaLogLevelKey;
+        public const string PitayaLogLevelKey = "pitaya_log_level";
         /// <summary>
         /// Key to store the metagame connection port into PlayerPrefs.
         /// </summary>
