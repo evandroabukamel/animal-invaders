@@ -1,7 +1,7 @@
 {
   "title": "Minimal Client",
   "name": "minimal-client",
-  "storePath": "com.wildlifestudios.client",
+  "storePath": "https://git.topfreegames.com/packages/examples/minimal-client-template",
   "owner": "",
   "description": "This is a minimal client that includes only authentication, configuration and persistence features.",
   "localUrl": "localhost",
