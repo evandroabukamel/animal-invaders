@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1949836916644292873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1949836916644292919}
+  - component: {fileID: 1949836916644292918}
+  m_Layer: 0
+  m_Name: MatchController
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1949836916644292919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949836916644292873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949836916644292918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949836916644292873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026cccd7c0d8b4c7c9fa68765ec76a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  spawnedBoss: {fileID: 0}
+  enemiesPrefabs:
+  - {fileID: 7221686062256598771, guid: c9991e4678bbf4555be16aad621ddbc3, type: 3}
+  - {fileID: 7221686062256598771, guid: b9655a9a023654f81b4c1da566035c79, type: 3}
+  - {fileID: 7221686062256598771, guid: 76cba6a8dc4354db49b23a781d0fbb7c, type: 3}
+  spawnedEnemies: []
+  OnEnemyKilledEvent: {fileID: 11400000, guid: ca699b10f42344c1787e2296f60338d2, type: 2}
+  OnBossKilledEvent: {fileID: 11400000, guid: 22cb179171003435f9c8a2923cedf1c6, type: 2}
+  OnPlayerDiedEvent: {fileID: 11400000, guid: a8ccfdc3337d446678738f77aed0fc5e, type: 2}
+  enemySpawnTopLeft: {fileID: 0}
+  enemySpawnBottomRight: {fileID: 0}
+  bossAreaTopLeft: {fileID: 0}
+  bossAreaBottomRight: {fileID: 0}
+  playerAreaBottomRight: {fileID: 0}
+  difficultyLevel: 1
+  prodRuleSet: {fileID: 11400000, guid: 2cc228436fd124618a149a9e163231a0, type: 2}
+  stagRuleSet: {fileID: 11400000, guid: f5c40da68f3ab4f3f907ea6c7a2f3165, type: 2}
+  powerUpsPrefabs:
+  - {fileID: 999236140806964497, guid: cb0622073c3a4402d9d5a8f4cae86d80, type: 3}
+  - {fileID: 8541595578288783559, guid: c44fab60577884c3fb83e5f4ff27701a, type: 3}
+  - {fileID: 3750831964831229553, guid: fee00aba3575048e1ad19862032d8f95, type: 3}
+  - {fileID: 4354092448330966711, guid: 0f46997aed19540a6892c954675d6e43, type: 3}
+  - {fileID: 8035452029055985330, guid: 136d425ba76b947fea9a66e5d0bd4853, type: 3}
+  - {fileID: 7458169513738459537, guid: 3f077a75501cf4291b20326dc100587b, type: 3}
+  - {fileID: 7792020074712916029, guid: e2ff292ad1f8748fb82186e40f62c29b, type: 3}
+  gameplayView: {fileID: 0}

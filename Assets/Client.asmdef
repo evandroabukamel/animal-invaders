@@ -1,0 +1,24 @@
+{
+    "name": "Client",
+    "rootNamespace": "",
+    "references": [
+        "Loader",
+        "Joystick",
+        "VfxSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "WSA"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "UnityEditor.CoreModule.dll",
+        "Pitaya.dll",
+        "Google.Protobuf.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

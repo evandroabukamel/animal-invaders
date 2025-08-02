@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PowerUps
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 210871dfb85f0428499c2b62f2ab2e67, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 348a5290e2cef4a67934183e04bdca71, type: 3}
+  - {fileID: 21300000, guid: 23ccc9334f88d4d94af1ba973d3a6456, type: 3}
+  - {fileID: 21300000, guid: 176763837655748008498bac93a35a17, type: 3}
+  - {fileID: 21300000, guid: 08897d93d05de4be4be839eafb802fe8, type: 3}
+  - {fileID: 21300000, guid: efebce4408cf34e9d9fa8af33c3434fb, type: 3}
+  - {fileID: 21300000, guid: b2c19485a8c7a4c5e91512cfe9e60bfd, type: 3}
+  - {fileID: 21300000, guid: 611b20b5cd0174ed092a259a441a6467, type: 3}
+  - {fileID: 21300000, guid: d61d0179f5bc54037b14a52ecd062d36, type: 3}
+  - {fileID: 21300000, guid: 182c268a4b9544a4d95fe9742a8e37aa, type: 3}
+  - {fileID: 21300000, guid: 6827ca0f3cb3c4f049de7840294d0ec8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - shield
+  - fire_rate
+  - PowerUpOctahedron
+  - add_gun
+  - PowerUpSimple
+  - nuke
+  - restore_all_hitpoinst
+  - gain_hitpoints
+  - restore_one_hitpoint
+  - PowerUpBig
+  m_RenderDataMap: {}
+  m_Tag: PowerUps
+  m_IsVariant: 0

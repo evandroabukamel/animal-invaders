@@ -1,0 +1,11 @@
+{
+  "currentReleaseChannel": 4,
+  "doNotDisturb": true,
+  "installedDependencies": {},
+  "installedVersion": null,
+  "installedVersionCreationTimestampSeconds": 0,
+  "lastUpdateCheckTimestampSeconds": 1661184096,
+  "latestVersion": "6-stable.0",
+  "previewSnapshotsEnabled": false,
+  "automaticallySelectMediationRecommendedPackages": true
+}
